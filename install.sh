@@ -26,21 +26,12 @@ pip install requests colorama tldextract beautifulsoup4
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 cp ~/go/bin/subfinder /data/data/com.termux/files/usr/bin/
 
-# === Step 4: Download RAJ_PRO_TOOLKIT Script ===
-cd ~
-rm -f raj_pro_toolkit_v6.3.py
-curl -LO https://github.com/bughunter11/raj_termux_setup/raw/main/raj_pro_toolkit_v6.3.py
-chmod +x raj_pro_toolkit_v6.3.py
-
-# === Step 5: Create launcher command (rajpro) ===
+# === Step 4: Create launcher that streams & runs script live ===
 LAUNCHER="/data/data/com.termux/files/usr/bin/rajpro"
 echo '#!/data/data/com.termux/files/usr/bin/bash' > $LAUNCHER
-echo 'python raj_pro_toolkit_v6.3.py' >> $LAUNCHER
+echo 'curl -sL https://github.com/bughunter11/raj_termux_setup/raw/main/raj_pro_toolkit_v6.3.py | python -' >> $LAUNCHER
 chmod +x $LAUNCHER
 
-# === Final Success Message ===
-echo -e "${GREEN}✔ RAJ_PRO_TOOLKIT installed successfully!${NC}"
-echo -e "👉 Type ${YELLOW}rajpro${NC} to launch the tool"
-
-# === Auto Launch ===
-rajpro
+# === Final Message ===
+echo -e "${GREEN}✔ RAJ_PRO_TOOLKIT setup complete!${NC}"
+echo -e "👉 Type ${YELLOW}rajpro${NC} to run the tool (no local files needed)"
