@@ -5,7 +5,7 @@ GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}Installing RAJ_PRO_TOOLKIT v6.3...${NC}"
+echo -e "${YELLOW}Installing RajPro_X_Toolkit...${NC}"
 
 # === Step 1: Update & Install Required Packages ===
 pkg update -y && pkg upgrade -y
